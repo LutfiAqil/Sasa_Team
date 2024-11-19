@@ -52,6 +52,7 @@ export default {
 <style scoped>
 .about-page {
   font-family: Arial, sans-serif;
+  background-color: white; /* Set global background color */
 }
 
 /* Hero Banner Styling */
@@ -106,8 +107,6 @@ export default {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  margin-left: 10px; /* Add horizontal margin for spacing */
-  margin-right: 10px; /* Add horizontal margin for spacing */
 }
 
 .info-title {
@@ -125,7 +124,10 @@ export default {
 
 /* Gallery Section Styling */
 .gallery-section {
-  padding: 50px 0;
+  padding: 50px 20px;
+  background-color: white; /* White background for this section */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Light shadow for separation */
+  border-radius: 8px; /* Rounded edges */
 }
 
 .gallery-header {
