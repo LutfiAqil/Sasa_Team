@@ -1,19 +1,19 @@
 <template>
   <v-app>
-    <!-- Transparent Top App Bar with no shadow -->
-    <v-app-bar app flat color="transparent" style="box-shadow: none;">
+    <!-- Minimalist Top App Bar with white background -->
+    <v-app-bar app flat color="white" style="box-shadow: none;">
       <!-- Logo Section -->
       <v-img src="/logo/sasa-logo.png" height="100px" style="max-width: 100px;" contain></v-img>
 
       <!-- Spacer to push navigation links to the right -->
       <v-spacer></v-spacer>
 
-      <!-- Navigation Links with customizable text color -->
+      <!-- Navigation Links -->
       <v-btn text to="/" class="custom-text-color">Home</v-btn>
       <v-btn text to="/services" class="custom-text-color">Services</v-btn>
       <v-btn text to="/about-us" class="custom-text-color">About Us</v-btn>
 
-      <!-- Dropdown for "Our Client" with an arrow indicator -->
+      <!-- Dropdown for "Our Client" with same color as top bar -->
       <v-menu v-model="clientMenu" offset-y open-on-hover>
         <template v-slot:activator="{ on, attrs }">
           <v-btn text v-bind="attrs" v-on="on" class="custom-text-color">
@@ -21,7 +21,7 @@
             <v-icon :class="{'rotate-arrow': clientMenu}" small>mdi-chevron-down</v-icon>
           </v-btn>
         </template>
-        <v-list class="text-only-dropdown">
+        <v-list class="dropdown-menu">
           <v-list-item to="/our-client">
             <v-list-item-title class="dropdown-text">Our Client</v-list-item-title>
           </v-list-item>
@@ -35,8 +35,8 @@
       <v-btn text to="/contact-us" class="custom-text-color">Contact Us</v-btn>
     </v-app-bar>
 
-    <!-- Main Content with Full Background -->
-    <v-main class="main-background">
+    <!-- Main Content -->
+    <v-main>
       <v-container fluid class="main-container">
         <nuxt />
       </v-container>
@@ -67,43 +67,32 @@ export default {
   color: #000000;
 }
 
-/* Dropdown arrow rotation */
+/* Rotate dropdown arrow when menu is active */
 .rotate-arrow {
   transform: rotate(180deg);
   transition: transform 0.3s ease;
 }
 
-/* Text-only dropdown items */
-.text-only-dropdown {
-  background-color: transparent !important; /* Ensure no background */
-  box-shadow: none !important; /* Remove any shadow */
+/* Dropdown menu with same background color as the top bar */
+.dropdown-menu {
+  background-color: white; /* Matches the top bar */
+  box-shadow: none; /* Removes shadow for minimalist style */
+  border: 1px solid #ddd; /* Optional border for definition */
   padding: 0;
 }
 
-.v-list-item {
-  padding: 0 !important;
-}
-
+/* Dropdown text styles */
 .dropdown-text {
   color: #000000;
   font-size: 0.9rem;
-  padding: 5px 15px;
+  padding: 10px 15px;
 }
 
 .dropdown-text:hover {
   color: #4eb135; /* Change color on hover */
 }
 
-/* Full-width, full-height background for each page */
-.main-background {
-  background-color: #fffffffa;
-  min-height: 50px;
-  width: 100%;
-  padding: 50;
-  margin: 0;
-  position: relative;
-}
-
+/* Main container without background */
 .main-container {
   max-width: 100% !important;
   padding: 0;
